@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-section {
+            max-width: 200px;
+        }
+        .bmi-ranges {
+            margin-left: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .bmi-range-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .bmi-range-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .bmi-range-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-section">
+        <h2>BMI Calculator</h2>
+        <label for="weight">Weight (lbs):</label>
+        <input type="number" id="weight" placeholder="Enter your weight in pounds">
+        
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" placeholder="Enter your height in centimeters">
+        
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="bmi-ranges">
+        <div class="bmi-range-title">BMI Categories:</div>
+        <ul class="bmi-range-list">
+            <li>Underweight: BMI &lt; 18.5</li>
+            <li>Normal weight: BMI 18.5 - 24.9</li>
+            <li>Overweight: BMI 25 - 29.9</li>
+            <li>Obesity: BMI 30 or greater</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function calculateBMI() {
+        // Get the input values
+        const weightLbs = document.getElementById('weight').value;
+        const heightCm = document.getElementById('height').value;
+
+        // Validate the inputs
+        if (weightLbs && heightCm) {
+            // Convert height from cm to meters
+            const heightM = heightCm / 100;
+            
+            // Convert weight from lbs to kg
+            const weightKg = weightLbs / 2.20462;
+
+            // Calculate BMI
+            const bmi = (weightKg / (heightM * heightM)).toFixed(2);
+            
+            // Display the result
+            let resultText = `Your BMI is: ${bmi}`;
+
+            // Add BMI category
+            if (bmi < 18.5) {
+                resultText += " (Underweight)";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                resultText += " (Normal weight)";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                resultText += " (Overweight)";
+            } else {
+                resultText += " (Obesity)";
+            }
+            
+            document.getElementById('result').textContent = resultText;
+        } else {
+            document.getElementById('result').textContent = "Please enter both weight and height.";
+        }
+    }
+</script>
+
+</body>
+</html>
