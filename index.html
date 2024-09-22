@@ -20,11 +20,12 @@
     }
 
     .rainbow-bg {
-      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      background: linear-gradient(90deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff);
       background-size: 400% 400%;
       animation: rainbow 4s ease infinite;
       display: none;
       padding: 20px;
+      border-radius: 10px;
     }
 
     @keyframes rainbow {
@@ -68,11 +69,14 @@
 
   <div class="rainbow-bg" id="greeting">
     <h1>Hi Emma!</h1>
+    <video autoplay width="320" height="240">
+        <source src="/Users/howardmoon/Downloads/asiankid.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <!-- Dancing girl image outside of the rainbow background div -->
   <img src="https://imgur.com/SsqhBVY" alt="(◕‿◕✿)" class="dancing-girl" id="dancing-girl">
-
+  
   <script>
     function showGreeting() {
       document.getElementById('greeting').style.display = 'block';
