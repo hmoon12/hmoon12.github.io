@@ -1,89 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Press the Button</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      background-color: #f3f3f3;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Jaretzy!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    h1 {
-      font-size: 50px;
-      color: white;
-      display: none;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
 
-    .rainbow-bg {
-      background: linear-gradient(90deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff);
-      background-size: 400% 400%;
-      animation: rainbow 4s ease infinite;
-      display: none;
-      padding: 20px;
-      border-radius: 10px;
-    }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-    @keyframes rainbow {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+        button:hover {
+            background-color: #0056b3;
+        }
 
-    button {
-      padding: 15px 30px;
-      font-size: 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        #greeting {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    button:hover {
-      background-color: #45a049;
-    }
+        h2 {
+            font-size: 2em;
+            color: #28a745; /* Green color for greeting */
+        }
 
-    .dancing-girl {
-      width: 150px;
-      margin-top: 20px;
-      display: none;
-      animation: dance 2s infinite;
-    }
-
-    @keyframes dance {
-      0% {transform: translateY(0);}
-      50% {transform: translateY(-20px);}
-      100% {transform: translateY(0);}
-    }
-  </style>
+        iframe {
+            margin-top: 10px;
+            border-radius: 10px; /* Rounded corners for iframe */
+        }
+    </style>
 </head>
 <body>
-
-  <button onclick="showGreeting()">Press It</button>
-
-  <div class="rainbow-bg" id="greeting">
-    <h1>Hola Jaretzy!</h1>
-    <video autoplay width="320" height="240">
-        <source src="https://imgur.com/SsqhBVY" referrerpolicy="no-referrer" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- Dancing girl image outside of the rainbow background div -->
-  <img src="https://imgur.com/SsqhBVY" alt="(◕‿◕✿)" class="dancing-girl" id="dancing-girl">
-  
-  <script>
-    function showGreeting() {
-      document.getElementById('greeting').style.display = 'block';
-      document.querySelector('h1').style.display = 'block';
-      document.getElementById('dancing-girl').style.display = 'block';
-    }
-  </script>
-
+    <h1>Press the button to say hi to Jaretzy!</h1>
+    
+    <button onclick="greetJaretzy()">Click me!</button>
+    
+    <div id="greeting">
+        <h2>Hi Jaretzy!</h2>
+        <iframe width="640" height="360" src="https://streamable.com/e/y95ida?autoplay=1&mute=1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    </div>
+    
+    <script>
+        function greetJaretzy() {
+            document.getElementById("greeting").style.display = "block";
+        }
+    </script>
 </body>
 </html>
