@@ -45,7 +45,7 @@
 
         h2 {
             font-size: 2em;
-            color: #28a745; /* Green color for greeting */
+            color: #7452ed; /* Green color for greeting */
         }
 
         iframe {
@@ -55,18 +55,18 @@
     </style>
 </head>
 <body>
-    <h1>Press the button to say hi to Jaretzy!</h1>
     
-    <button onclick="greetJaretzy()">Click me!</button>
+    <button id="greetButton" onclick="greetJaretzy()">presione el botón!</button>
     
     <div id="greeting">
-        <h2>Hi Jaretzy!</h2>
+        <h2>Hola Jaretzy!</h2>
         <iframe width="640" height="360" src="https://streamable.com/e/y95ida?autoplay=1&mute=1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
     </div>
     
     <script>
         function greetJaretzy() {
             document.getElementById("greeting").style.display = "block";
+            document.getElementById("greetButton").style.display = "none"; // Hide the button
         }
     </script>
 </body>
